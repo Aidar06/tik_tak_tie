@@ -1,0 +1,349 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.group{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &--header{
+    position: absolute;
+    top: 0;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+    img{
+      width: 60px;
+    }
+    &__menu{
+      color: white;
+      font-size: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .5s;
+    }
+  }
+  &--burger{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.77);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    z-index: 20;
+    transition: 1s;
+    &__block{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &--set{
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        font-size: 80px;
+        &__col{
+          display: flex;
+          margin-left: 40px;
+          div{
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid white;
+          }
+        }
+      }
+    }
+  }
+  &--winner{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.77);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    z-index: 110;
+    transition: 1s;
+    &__block{
+      h1{
+        margin-top: 200px;
+        text-align: center;
+        font-size: 90px;
+        color: white;
+        animation: 1s h1 alternate;
+        transition: 1s;
+        @keyframes h1 {
+          0%{
+            transform: translateX(3000px);
+          }
+        }
+      }
+      h2{
+        transition: 1.5s;
+        text-align: center;
+        font-size: 60px;
+        color: rgba(253, 145, 4, 0.83);
+        animation: 1.4s h2 alternate;
+        @keyframes h2 {
+          0%{
+            transform: translateX(3000px);
+          }
+        }
+      }
+    }
+  }
+  &--names{
+    margin-top: 20px;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.57);
+    backdrop-filter: blur(2px);
+    padding: 20px 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    input{
+      width: 40%;
+      height: 30px;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 25px;
+    }
+    &__in1{
+      text-align: start;
+      animation: 2s f alternate;
+      @keyframes f {
+        0%{
+          transform: translateX(-300px);
+        }
+      }
+    }
+    &__in2{
+      text-align: end;
+      animation: 2s n alternate;
+      @keyframes n {
+        0%{
+          transform: translateX(300px);
+        }
+      }
+    }
+  }
+  &--game{
+    margin-top: 30px;
+    width: 450px;
+    height: 450px;
+    position: relative;
+    &__border1{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      div{
+        border-radius: 10px;
+        width: 100%;
+        height: 15px;
+      }
+    }
+    &__border2{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      div{
+        border-radius: 10px;
+        width: 15px;
+        height: 100%;
+      }
+    }
+    &__blocks{
+      display: flex;
+      flex-wrap: wrap;
+      width: 450px;
+      height: 450px;
+      z-index: 2;
+      &--block{
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 110px;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+.video{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container{
+  width: 90px;
+  margin: 0 auto;
+}
+
+
+@media (max-width: 992px) {
+  .group{
+    &--names{
+      width: 60%;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .group{
+    &--names{
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .group{
+    &--names{
+      margin-top: 10px;
+    }
+    &--game{
+      width: 390px;
+      height: 390px;
+      margin-top: 60px;
+      &__blocks{
+        width: 390px;
+        height: 390px;
+        &--block{
+          width: 130px;
+          height: 130px;
+          font-size: 90px;
+        }
+      }
+    }
+    &--burger{
+      &__block{
+        &--set{
+          width: 60%;
+          &__col{
+            display: flex;
+            flex-wrap: wrap;
+            div{
+              margin: 10px 10px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 460px) {
+  .group{
+    &--burger{
+      &__block{
+        &--set{
+          width: 80%;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 430px) {
+  .group{
+    &--game{
+      width: 330px;
+      height: 330px;
+      margin-top: 60px;
+      &__border1{
+        div{
+          height: 10px;
+        }
+      }
+      &__border2{
+        div{
+          width: 10px;
+        }
+      }
+      &__blocks{
+        width: 330px;
+        height: 330px;
+        &--block{
+          width: 110px;
+          height: 110px;
+          font-size: 90px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .group{
+    &--game{
+      width: 300px;
+      height: 300px;
+      margin-top: 60px;
+      &__blocks{
+        width: 300px;
+        height: 300px;
+        &--block{
+          width: 100px;
+          height: 100px;
+          font-size: 80px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 330px) {
+  .group{
+    &--burger{
+      &__block{
+        &--set{
+          width: 90%;
+        }
+      }
+    }
+
+  }
+}
+
